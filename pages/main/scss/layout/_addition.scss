@@ -1,0 +1,164 @@
+@import '../abstract/variables';
+@import '../abstract/mixins';
+
+.addition {
+    background-color: #f6f6f6;
+
+    &__container {
+        padding-top: 79px;
+        padding-bottom: 100px;
+        display: $displayFlex;
+        justify-content: center;
+        align-items: center;
+
+        @media (min-width: 320px) and (max-width: 1279px) {
+            padding-top: 80px;
+            padding-bottom: 95px;
+            flex-direction: column-reverse;
+            @media (min-width: 576px) and (max-width: 767px) {
+                padding-top: 62px;
+                padding-bottom: 60px;
+            }
+            @media (min-width: 320px) and (max-width: 575px) {
+                padding-top: 42px;
+                padding-bottom: 38px;
+            }
+        }
+        @media (max-width: 319px){
+            flex-direction: column-reverse;
+        }
+
+       
+    }
+
+    &__image {
+        padding-top: 6px;
+        margin-right: 28px;
+
+        @media (min-width: 320px) and (max-width: 1279px) {
+            padding-top: 0;
+            margin-right: 0;
+            @media (min-width: 576px) and (max-width: 767px) {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+            @media (min-width: 320px) and (max-width: 575px) {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+
+       
+    }
+
+    &__info {
+        max-width: 380px;
+        padding-top: 2px;
+
+        @media (min-width: 768px) and (max-width: 1279px) {
+            margin-bottom: 60px;
+        }
+        @media (min-width: 320px) and (max-width: 767px) {
+            margin-bottom: 50px;
+            display: $displayFlex;
+            flex-direction: column;
+            align-items: center;
+            @media (min-width: 320px) and (max-width: 575px) {
+                padding-left: 10px;
+                padding-right: 10px;
+                margin-bottom: 42px;
+            }
+        }
+
+      
+    }
+
+    &__title {
+        max-width: 300px;
+        margin-bottom: 19px;
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            text-align: center;
+            @media (min-width: 320px) and (max-width: 575px) {
+            @include descrGeneral(400, 25px, 1.5px, $color545454);
+            line-height: calc(32.5 / 25);
+        
+            padding-left: 30px;
+            padding-right: 30px;
+            margin-bottom: 18px;
+            }
+        }
+        @media (max-width: 319px){
+            text-align: center;
+            @include descrGeneral(400, 20px, 1.5px, $color545454);
+            line-height: calc(22.5 / 20); 
+            margin-bottom: 25px;
+        }
+    }
+
+    &__title-number {
+        @include description-second(400, .9px);
+        color: $color545454;
+        margin-bottom: 19px;
+
+        @media (min-width: 320px) and (max-width: 575px) {
+            padding-left: 3px;
+            font-size: 15px;
+            line-height: calc(24 / 15);
+            padding-right: 4px;
+            letter-spacing: normal;
+        }
+    }
+
+    &__href {
+        display: $displayFlex;
+        align-items: center;
+        padding: 10px 15px;
+        border-radius: 9px;
+        background-color: $colorF1cdb3;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        max-width: 349px;
+        transition: background-color .4s ease-in-out;
+
+        @media (min-width: 320px) and (max-width: 575px) {
+            padding: 10px 14px;
+            width: 281px;
+        }
+
+        &:active {
+            pointer-events: none;
+            cursor: default;
+        }
+    }
+
+    &__href:hover {
+        background-color: $colorFddcc4;
+    }
+
+    &__description {
+        @include descrGeneral(400, 12px, normal, #b2b2b2);
+        line-height: 1.5em;
+        font-style: italic;
+        font-family: "Arial";
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            text-align: justify;
+        }
+    }
+}
+
+.href-text {
+    @include descrGeneral(400, 20px, 1.2px, $color545454);
+    line-height: calc(23 / 20);
+
+    @media (min-width: 320px) and (max-width: 575px) {
+        @include descrGeneral(400, 15px, .9px, $color545454);
+        line-height: calc(16.5 / 15);
+        padding-top: 1px;
+    }
+    @media (max-width: 319px){
+        @include descrGeneral(400, 11px, 1.5px, $color545454);
+        line-height: calc(13.5 / 11); 
+    }
+}

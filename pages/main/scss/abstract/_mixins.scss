@@ -1,0 +1,45 @@
+@import '_variables.scss';
+
+@mixin title {
+    font-weight: 400;
+    font-size: 35px;
+    line-height: calc(45.5 / 35);
+    color: $color545454;
+    letter-spacing: 2.1px;
+}
+
+@mixin description {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: calc(24 / 15);
+    font-family: "Arial";
+}
+
+@mixin description-second($font-weight, $letter-spacing) {
+    font-weight: $font-weight;
+    font-size: 15px;
+    line-height: calc(16.5 / 15);
+    letter-spacing: $letter-spacing;
+}
+
+@mixin descrGeneral($font-weight, $font-size, $letter-spacing, $color) {
+    font-weight: $font-weight;
+    font-size: $font-size;
+    letter-spacing: $letter-spacing;
+    color: $color;
+}
+
+@mixin image($url) {
+    background-image: url($url);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+@mixin transitionBackBorder {
+    transition: background-color .4s ease-in-out, border-color .4s ease-in-out;
+}
+
+@mixin hoverButton {
+    background-color: $colorFddcc4;
+    border-color: $colorFddcc4;
+}

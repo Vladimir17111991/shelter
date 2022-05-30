@@ -1,0 +1,200 @@
+@import '../abstract/variables';
+@import '../abstract/mixins';
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    overflow-y: hidden;
+    overflow: hidden;
+    @media (max-width: 319px){
+        right: inherit;
+    }
+    &__container {
+        position: relative;
+        display: grid;
+        grid-template-columns: 190px 2fr;
+        gap: 30px;
+        align-items: center;
+        @media (max-width: 319px){
+            grid-template-columns: 180px 2fr;
+            gap: 10px;
+            width: 320px;
+        }
+    }
+
+    &__logo {
+        @media (min-width: 320px) and (max-width: 767px) {
+            z-index: 25;
+        }
+    }
+
+    &__logo-title {
+        @include descrGeneral(400, 32px, 2px, $colorF1cdb3);
+        line-height: calc(35.2 / 32);
+        padding-top: 2px;
+        margin-bottom: 9px;
+    }
+
+    &__logo-descr {
+        @include descrGeneral(400, 13px, 1.3px, $colorWhite);
+        line-height: calc(14.95 / 13);
+        font-family: "Arial";
+        padding-left: 4px;
+    }
+
+    &__button-burger {
+        position: absolute;
+        display: none;
+        width: 30px;
+        height: 22px;
+        border: none;
+        padding: 0;
+        background-color: transparent;
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            display: $displayFlex;
+            justify-content: flex-end;
+            z-index: 25;
+            bottom: 0;
+            transform: rotate(0deg);
+            transition: transform .4s ease-in-out;
+            @media (min-width: 576px) and (max-width: 767px) {
+                top: 40.2%;
+                right: 4.7%;
+            }
+
+            @media (min-width: 320px) and (max-width: 575px) {
+                top: 40.2%;
+                right: 16.7%;
+            }
+        }
+        @media (max-width: 319px) {
+            display: $displayFlex;
+            justify-content: flex-end;
+            z-index: 25;
+            bottom: 0;
+            transform: rotate(0deg);
+            transition: transform .4s ease-in-out;
+            top: 40.2%;
+            right: 16.7%;
+        }
+    }
+
+    &__burger {
+        display: block;
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            position: absolute;
+            background-color: $color292929;
+            height: 823px;
+           
+            width: 100%;
+            max-width: 320px;
+            visibility: hidden;
+            padding: 250px 7px 48px;
+            transform: translateX(101%);
+        }
+
+        position: static;
+        z-index: 20;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        transition-timing-function: ease-in-out;
+        transition-duration: .3s;
+        transition-property: transform, visibility;
+
+    }
+    // &__burger-overflow{
+        &__nav{
+        @media (max-width: 767px){
+        max-height: calc(100vh - 250px);
+        overflow-y: auto;
+        }
+    }
+    &__list {
+        display: $displayFlex;
+        list-style: none;
+        justify-content: flex-end;
+        padding-bottom: 5px;
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+
+    &__item:not(:last-child) {
+        margin-right: 36px;
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            margin-right: 0;
+            margin-bottom: 41px;
+        }
+    }
+}
+
+@keyframes active-burger {
+    from {
+        transform: translateX(101%);
+    }
+
+    to {
+        transform: translateX(0%);
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.is-active-burger {
+    animation-name: active-burger;
+    animation-duration: .4s;
+    visibility: visible;
+    transform: none;
+}
+
+.is-active-burger-button {
+    transform: rotate(90deg);
+}
+
+.item-href {
+    position: relative;
+    @include description;
+    color: $colorCdcdcd;
+    padding-bottom: 2px;
+    border-bottom: 3px solid transparent;
+    transition: color .3s ease-in-out;
+
+    @media (min-width: 320px) and (max-width: 767px) {
+
+        @include descrGeneral(400, 32px, 0, $colorCdcdcd);
+        line-height: calc(51.2 / 32);
+    }
+}
+
+.is-active {
+    animation-name: headerHref;
+    animation-duration: .4s;
+    border-color: $colorF1cdb3;
+    color: $colorFafafa;
+}
+
+@keyframes headerHref {
+    from {
+        color: $colorCdcdcd;
+        border-color: transparent;
+    }
+
+    to {
+        border-color: $colorF1cdb3;
+        color: $colorFafafa;
+    }
+}
+
+.item-href:hover {
+    color: $colorFafafa;
+}

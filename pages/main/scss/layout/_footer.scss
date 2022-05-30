@@ -1,0 +1,203 @@
+@import '../abstract/variables';
+@import '../abstract/mixins';
+
+.footer {
+    background: url('../../../assets/images/noise_transparent.png'), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%);
+
+    &__container {
+        padding-top: 40px;
+        display: $displayFlex;
+        justify-content: space-between;
+
+        @media (min-width: 768px) and (max-width: 1279px) {
+            padding: 32px 175px 0;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            @media (min-width: 768px) and (max-width: 1023px) {
+                padding-left: 60px;
+                padding-right: 60px;
+            }
+        }
+        @media (min-width: 320px) and (max-width: 767px) {
+            flex-direction: column;
+            padding-top: 31px;
+            align-items: center;
+            padding-bottom: 0;
+
+        }
+
+        @media (max-width: 319px) {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    &__left {
+        // display: none;
+        max-width: 280px;
+        padding-top: 17px;
+        margin-right: 13px;
+        padding-bottom: 60px;
+
+        @media (min-width: 320px) and (max-width: 1279px) {
+            padding: 0;
+            margin-right: 58px;
+            margin-bottom: 64px;
+
+            @media (min-width: 320px) and (max-width: 767px) {
+                margin-right: 0;
+                padding-left: 11px;
+                padding-right: 11px;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+        }
+
+    }
+
+    &__title {
+        color: $colorWhite;
+        margin-bottom: 38px;
+
+        @media (min-width: 320px) and (max-width: 575px) {
+            @include descrGeneral(400, 25px, 1.5px, $colorWhite);
+            line-height: calc(32.5 / 25);
+            margin-bottom: 38px;
+        }
+
+        @media (max-width: 319px) {
+            @include descrGeneral(400, 20px, 1.5px, $colorWhite);
+            line-height: calc(22.5 / 20);
+            text-align: center;
+        }
+    }
+
+    &__list {
+        list-style: none;
+
+        @media (min-width: 320px) and (max-width: 575px) {
+            display: $displayFlex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    &__item {
+        display: $displayFlex;
+        align-items: center;
+    }
+
+    &__item:not(:last-child) {
+        margin-bottom: 40px;
+    }
+
+    &__item-href {
+        display: flex;
+        align-items: center;
+    }
+
+
+    &__item-icon {
+        margin-right: 19px;
+    }
+
+    &__item-text {
+        @include descrGeneral(400, 20px, 1.2px, $colorF1cdb3);
+        line-height: calc(23 / 20);
+        max-width: 255px;
+        // width: 86%;
+        border-bottom: 2px solid transparent;
+        transition: border-color .4s ease-in-out;
+    }
+
+    &__item-href:hover &__item-text {
+        border-color: $colorF1cdb3;
+
+    }
+
+    &__center {
+        max-width: 316px;
+        padding-top: 18px;
+        padding-bottom: 58px;
+
+        @media (min-width: 320px) and (max-width: 1279px) {
+            max-width: 300px;
+            padding: 0;
+            margin-bottom: 64px;
+
+            @media (min-width: 320px) and (max-width: 767px) {
+                margin-right: 0;
+                margin-bottom: 39px;
+                text-align: center;
+            }
+        }
+    }
+
+    &__center &__title {
+        margin-bottom: 30px;
+
+        @media (min-width: 320px) and (max-width: 575px) {
+            @include descrGeneral(400, 25px, 1.5px, $colorWhite);
+            line-height: calc(32.5 / 25);
+            margin-bottom: 39px;
+            padding-left: 11px;
+            padding-right: 11px;
+        }
+
+        @media (max-width: 319px) {
+            @include descrGeneral(400, 20px, 1.5px, $colorWhite);
+            line-height: calc(22.5 / 20);
+            margin-bottom: 39px;
+            padding-left: 11px;
+            padding-right: 11px;
+        }
+    }
+
+    &__center &__list {
+        @media (min-width: 320px) and (max-width: 575px) {
+            justify-content: start;
+            align-items: flex-start;
+        }
+    }
+
+    &__center &__item-text {
+        @media (min-width: 320px) and (max-width: 575px) {
+            text-align: start;
+        }
+    }
+
+    &__center &__item:not(:last-child) {
+        margin-bottom: 32px;
+
+        @media (min-width: 320px) and (max-width: 575px) {
+            margin-bottom: 39px;
+        }
+    }
+
+    &__right {
+        @include image('../../../assets/images/footer-puppy.png');
+        background-position: center bottom;
+        max-width: 300px;
+        width: 100%;
+
+        @media (min-width: 768px) and (max-width: 1279px) {
+            height: 310px;
+        }
+
+        @media (min-width: 576px) and (max-width: 767px) {
+            height: 289px;
+            max-width: 280px;
+        }
+
+        @media (min-width: 320px) and (max-width: 575px) {
+            height: 269px;
+            max-width: 260px;
+        }
+
+        @media (max-width: 319px) {
+            height: 159px;
+            max-width: 150px;
+        }
+    }
+}

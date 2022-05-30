@@ -1,0 +1,511 @@
+@import '../abstract/variables';
+@import '../abstract/mixins';
+
+.our-pets {
+    background-color: #f6f6f6;
+
+    &__container {
+        padding-top: 82px;
+        padding-bottom: 100px;
+
+        @media (min-width: 768px) and (max-width: 1279px) {
+            padding-bottom: 101px;
+        }
+
+        @media (min-width: 320px) and (max-width: 575px) {
+            padding-top: 43px;
+            padding-bottom: 43px;
+        }
+
+        display: $displayFlex;
+        flex-direction: column;
+    }
+
+    &__title {
+        text-align: center;
+        margin-bottom: 57px;
+
+        @media (min-width: 320px) and (max-width: 575px) {
+            @include descrGeneral(400, 25px, 1.5px, $color545454);
+            line-height: calc(32.5 / 25);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+    }
+
+    &__swiper {
+        max-width: 100%;
+        padding-left: 105px;
+        padding-right: 105px;
+
+        @media (min-width: 768px) and (max-width: 1279px) {
+            padding-left: 64px;
+            padding-right: 64px;
+        }
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        @media (max-width: 319px) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    &__swiper-container-pets {
+        overflow: hidden;
+        margin: 0 auto;
+
+        @media (min-width: 1150px) and (max-width: 1279px) {
+            width: 611px;
+        }
+
+        @media (min-width: 768px) and (max-width: 1149px) {
+            width: 580px;
+        }
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            width: 270px;
+        }
+
+        @media (max-width: 319px) {
+            width: 270px;
+        }
+    }
+
+    &__wrapper {
+        position: relative;
+        display: $displayFlex;
+        left: -1080px;
+        box-sizing: border-box;
+        margin-bottom: 60px;
+
+        @media (min-width: 768px) and (max-width: 1279px) {
+            left: -620px;
+            margin-bottom: 113px;
+        }
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            margin-bottom: 113px;
+            left: -290px;
+        }
+
+        @media (max-width: 319px) {
+            margin-bottom: 120px;
+        }
+    }
+
+    &__navigation {
+        display: $displayFlex;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    &__btn-prev,
+    &__btn-next {
+        position: absolute;
+        top: 38.8%;
+        width: 52px;
+        height: 52px;
+        background-color: transparent;
+        @include transitionBackBorder;
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            top: 82.9%;
+        }
+
+        @media (max-width: 319px) {
+            top: 81.9%;
+        }
+
+    }
+
+    &__btn-prev {
+        left: 0;
+
+        @media (max-width: 767px) {
+            left: 19.4%;
+        }
+    }
+
+    &__btn-next {
+        right: 0;
+        transform: rotate(180deg);
+
+        @media (max-width: 767px) {
+            right: 19.4%;
+        }
+    }
+
+    &__btn-prev:hover,
+    &__btn-next:hover {
+        @include hoverButton;
+    }
+
+    &__slide {
+        display: $displayFlex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        background-color: $colorFafafa;
+        padding-bottom: 30px;
+        margin-right: 90px;
+        z-index: 3;
+        border-radius: 9px;
+        @include transitionBackBorder;
+        width: 270px !important;
+        @media(min-width:768px) and (max-width:1279px) {
+            margin-right: 40px;
+        }
+        @media(min-width:320px) and (max-width:767px) {
+            margin-right: 20px;
+        }
+    }
+
+    &__slide:hover {
+        background-color: $colorWhite;
+    }
+
+    &__slide:hover .pet-button {
+        @include hoverButton;
+    }
+
+    &__button-all-pets {
+        padding: 14px 43px 11px;
+        max-width: 263px;
+        background-color: $colorF1cdb3;
+        align-self: center;
+        @include transitionBackBorder;
+    }
+
+    &__button-all-pets:hover {
+        @include hoverButton;
+    }
+}
+
+@media(min-width:1280px) {
+    @keyframes move-left {
+        from {
+            left: -1080px;
+        }
+
+        to {
+            left: 0;
+        }
+    }
+}
+
+@media(min-width:768px) and (max-width:1279px) {
+    @keyframes move-left {
+        from {
+            left: -620px;
+        }
+
+        to {
+            left: 0;
+        }
+    }
+}
+
+@media(min-width:320px) and (max-width:767px) {
+    @keyframes move-left {
+        from {
+            left: -290px;
+        }
+
+        to {
+            left: 0;
+        }
+    }
+}
+
+@media(min-width:1280px) {
+    @keyframes move-right {
+        from {
+            left: -1080px
+        }
+
+        to {
+            left: -2160px
+        }
+    }
+}
+
+@media(min-width:768px) and (max-width:1279px) {
+    @keyframes move-right {
+        from {
+            left: -620px;
+        }
+
+        to {
+            left: -1240px;
+        }
+    }
+}
+@media(min-width:320px) and (max-width:767px) {
+    @keyframes move-right {
+        from {
+            left: -290px;
+        }
+
+        to {
+            left: -580px;
+        }
+    }
+}
+.transition-left {
+    animation: move-left .5s;
+}
+
+.transition-right {
+    animation: move-right .5s;
+}
+
+.item {
+    display: $displayFlex;
+}
+
+.modal {
+    position: relative;
+    max-width: 900px;
+    // max-height: calc(100vh - 135px);
+    // overflow-y: auto;
+    // overflow-x: hidden;
+    @media (min-width: 768px) and (max-width: 1279px) {
+        max-width: 630px;
+    }
+
+    // @media (min-width: 576px) and (max-width: 767px) {
+    //     max-width: 475px;
+    // }
+
+    @media (min-width: 320px) and (max-width: 767px) {
+        max-width: 240px;
+        // max-height: calc(100vh - 135px);
+        // overflow-y: auto;
+    }
+
+    background: $colorFafafa;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9px;
+    display: none;
+
+    &-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: $displayFlex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        width: 100%;
+        opacity: 0;
+        z-index: 52;
+        visibility: hidden;
+        background-color: rgba(41, 41, 41, .6);
+        transition: opacity .4s ease, visibility .4s ease;
+    }
+
+    &-overlay--visible {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity .4s ease, visibility .4s ease;
+    }
+
+    &--visible {
+        display: $displayFlex;
+        cursor: default;
+    }
+
+    &-image {
+        margin-right: 30px;
+        border-radius: 9px 0 0 9px;
+      
+        max-width: 100vh;
+        @media (min-width: 768px) and (max-width: 1279px) {
+            // max-width: 350px;
+            
+            // max-height: calc(100vh - 150px);
+            margin-right: 11px;
+        }
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            display: none;
+        }
+    }
+
+    &-info {
+        display: $displayFlex;
+        padding: 51px 20px 85px 0;
+        flex-direction: column;
+        // flex-wrap: wrap;
+        height: 100%;
+        width: 72%;
+        // width: 260px;
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
+        @media (min-width: 768px) and (max-width: 1279px) {
+            padding: 12px 6px 35px 0;
+        }
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            padding: 12px 9px 7px 10px;
+            width: 100%;
+            align-items: center;
+            text-align: center;
+          
+        }
+
+    }
+
+    &-list {
+        list-style: disc;
+        padding-left: 16px;
+        list-style-position: outside;
+        max-width: 100%;
+        align-self: flex-start;
+    }
+
+    &-item {
+        color: $colorF1cdb3;
+
+    }
+    &-item:not(:last-child) {
+        margin-bottom: 9px;
+
+        @media (min-width: 320px) and (max-width: 1279px) {
+            margin-bottom: 5px;
+        }
+    }
+
+    &-item-title {
+        @include description-second(700, 1px);
+        color: $colorBlack;
+    }
+
+    &-item-descr {
+        @include description-second(400, 1px);
+        color: $colorBlack;
+        padding-top: 2px;
+        text-align: left;
+    }
+
+    &-btn-close {
+        position: absolute;
+        // top: -10.4%;
+        top: -54px;
+        right: -4.7%;
+        bottom: 0;
+        width: 52px;
+        height: 52px;
+        background-color: transparent;
+        @include transitionBackBorder;
+
+        @media (min-width: 768px) and (max-width: 1279px) {
+            // top: -14.8%;
+            top: -54px;
+            right: -6.8%;
+        }
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            // top: -15.3%;
+            right: -12.5%;
+        }
+    }
+
+    &-overlay:hover &-btn-close {
+        @include hoverButton;
+    }
+
+    &--visible:hover &-btn-close {
+        background-color: transparent;
+    }
+
+    &--visible &-btn-close:hover {
+        @include hoverButton;
+    }
+
+    &-btn-icon {
+        fill: $color292929;
+        vertical-align: middle;
+    }
+}
+
+.pet-icon {
+    width: auto;
+    margin-bottom: 31px;
+    border-radius: 9px 9px 0 0;
+}
+
+.pet-title {
+    @include descrGeneral(400, 20px, 1.2px, $color545454);
+    line-height: calc(22.72 / 20);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.pet-button {
+    padding: 14px 42px 12px;
+    background-color: transparent;
+    @include transitionBackBorder;
+}
+
+
+.title-h3 {
+    @include descrGeneral(400, 35px, 2.2px, $colorBlack);
+    line-height: calc(45.5 / 35);
+    margin-bottom: 7px;
+
+    @media (min-width: 320px) and (max-width: 575px) {
+        margin-bottom: 6px;
+        padding-left: 5px;
+    }
+
+}
+
+.title-h4 {
+    @include descrGeneral(400, 20px, 1.2px, $colorBlack);
+    line-height: calc(23 / 20);
+    margin-bottom: 41px;
+
+    @media (min-width: 320px) and (max-width: 1279px) {
+        margin-bottom: 22px;
+    }
+}
+
+.title-h5 {
+    @include descrGeneral(400, 15px, .9px, $colorBlack);
+    line-height: calc(17 / 15);
+    margin-bottom: 38px;
+
+    @media (min-width: 320px) and (max-width: 1279px) {
+        @include descrGeneral(400, 13px, .8px, $colorBlack);
+        line-height: calc(14 / 13);
+        margin-bottom: 15px;
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+    }
+
+}
+
+.item-info {
+    display: $displayFlex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.arrow-icon {
+    vertical-align: 10%;
+}

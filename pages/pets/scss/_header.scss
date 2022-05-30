@@ -1,0 +1,98 @@
+@import '../../main/scss/abstract/variables';
+@import '../../main/scss/abstract/mixins';
+@import '../../main/scss/layout/header';
+
+.header {
+    // position: sticky;
+    position: fixed;
+    @media screen and(min-width: 768px){
+        background-color: $colorWhite; 
+    }
+   
+    top: 0;
+    z-index: 5;
+    overflow-y: hidden;
+
+    @media (max-width: 767px) {
+        background-color: transparent;
+    }
+
+    @media (max-width: 319px) {
+        right: inherit;
+    }
+
+    &__container {
+        display: grid;
+        grid-template-columns: 190px 2fr;
+        gap: 30px;
+        align-items: center;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        background: $colorWhite;
+
+        @media (max-width: 319px) {
+            gap: 10px;
+            width: 320px;
+        }
+    }
+
+    &__logo-title {
+        @include descrGeneral(400, 32px, 2px, $color545454);
+        line-height: calc(35.2 / 32);
+        padding-top: 2px;
+        margin-bottom: 9px;
+    }
+
+    &__logo-descr {
+        @include descrGeneral(400, 13px, 1.3px, $color292929);
+        line-height: calc(14.95 / 13);
+        font-family: "Arial";
+        padding-left: 4px;
+    }
+
+    &__burger {
+        @media (max-width: 767px) {
+            background-color: $colorWhite;
+        }
+    }
+}
+
+.reset-color {
+    background: unset;
+}
+
+.item-href {
+    @include description;
+    color: $color545454;
+    padding-bottom: 2px;
+
+    // border-bottom: 3px solid transparent;
+    // transition: color .3s ease-in-out;
+    @media (max-width: 767px) {
+        @include descrGeneral(400, 32px, 0, $color545454);
+        line-height: calc(51.2 / 32);
+    }
+}
+
+.is-active {
+    animation-name: headerHref;
+    animation-duration: .4s;
+    border-color: $colorF1cdb3;
+    color: $color292929;
+}
+
+@keyframes headerHref {
+    from {
+        color: $colorCdcdcd;
+        border-color: transparent;
+    }
+
+    to {
+        border-color: $colorF1cdb3;
+        color: $color292929;
+    }
+}
+
+.item-href:hover {
+    color: $color292929;
+}

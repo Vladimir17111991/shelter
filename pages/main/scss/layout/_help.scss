@@ -1,0 +1,76 @@
+@import '../abstract/variables';
+@import '../abstract/mixins';
+
+.help {
+    background-color: $colorWhite;
+    &__container {
+        padding-top: 82px;
+        padding-bottom: 67px;
+        @media (min-width: 768px) and (max-width: 1279px){
+            padding-bottom: 68px;
+        }
+        @media (min-width: 576px) and (max-width: 767px){
+            padding: 52px 20px 35px;
+        }
+        @media (min-width: 320px) and (max-width: 575px){
+            padding: 42px 15px 19px;
+        }
+    }
+    &__title {
+        text-align: center;
+        margin-bottom: 35px;
+        @media (min-width: 320px) and (max-width: 575px){
+            @include descrGeneral(400, 25px, 1.5px, $color545454);
+            line-height: calc(32.5 / 25);
+            text-align: center;
+        }
+        @media (max-width: 319px){
+            @include descrGeneral(400, 20px, 1.5px, $color545454);
+            line-height: calc(22.5 / 20); 
+        }
+    }
+    &__main {
+        display: $displayFlex;
+        flex-flow: row wrap;
+        justify-content: center;
+        overflow: hidden;
+        @media (min-width: 320px) and (max-width: 576px){
+            justify-content: space-between;
+        }
+    }
+    &__item {
+        display: inline-block;
+        padding: 22px 59px 33px;
+        text-align: center;
+        @media (min-width: 768px) and (max-width: 1279px){
+            padding: 22px 0 32px;
+            margin: 0 29px;
+            width: 172px;
+        }
+        @media (min-width: 576px) and (max-width: 767px){
+            width: 170px;
+            padding: 15px 0 27px;
+        }
+        @media (min-width: 320px) and (max-width: 575px){
+            width: 131px;
+            padding: 6px 0 22px;
+        }
+    }
+    &__item-image {
+        margin-bottom: 26px;
+        @media (min-width: 320px) and (max-width: 575px){
+            width: 50px;
+            height: 50px;
+            margin-bottom: 18px;
+        }
+    }
+    &__item-title {
+        @include descrGeneral(400,20px,1.3px, $color545454);
+        line-height: calc(23 / 20);
+        @media (min-width: 320px) and (max-width: 575px){
+            @include descrGeneral(400,15px,1.3px, $color545454);
+            line-height: calc(16.5 / 15);
+        }
+    }
+
+}
